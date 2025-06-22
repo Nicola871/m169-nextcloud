@@ -40,9 +40,17 @@ Grafana dient zur Visualisierung der gesammelten Daten. Mit Hilfe von Dashboards
 
 ### Monitoring Dashboard (Grafana)
 
+Hier ist ein Beispiel für das Montitoring Dashboard von der Nextcloud Datenbank:
+
 ![Monitoring Dashboard](screenshots/Screenshot%202025-06-22%20at%2012-03-00%20Nextcloud%20DB%20-%20Dashboards%20-%20Grafana.png)
+
+Hier ist ein Beispiel für das Montitoring Dashboard von der Nextcloud:
+
+![Monitoring Dashboard](screenshots/Screenshot%202025-06-22%20at%2012-03-00%20Nextcloud%20-%20Dashboards%20-%20Grafana.png)
 
 ### Nextcloud
 
-<!-- Füge hier einen Screenshot von Nextcloud hinzu, z.B.: -->
-<!-- ![Nextcloud Screenshot](screenshots/Nextcloud_Beispiel.png) -->
+So sieht die Website von der Nextcloud aus:
+
+![Monitoring Dashboard](screenshots/Screenshot%202025-06-22%20at%2012-03-00%20Nextcloud%20-%20Dashboards%20-%20Grafana.png)
+
