@@ -36,3 +36,13 @@ Prometheus ist ein Open-Source Monitoring- und Alerting-System. Es sammelt regel
 #### grafana (Port 8030)
 Grafana dient zur Visualisierung der gesammelten Daten. Mit Hilfe von Dashboards können Trends, Auslastungen und Fehlerzustände übersichtlich dargestellt werden. Grafana bindet sich an Prometheus als Datenquelle an.
 
+## Beispiel-Screenshots
+
+### Monitoring Dashboard (Grafana)
+
+![Monitoring Dashboard](screenshots/Screenshot%202025-06-22%20at%2012-03-00%20Nextcloud%20DB%20-%20Dashboards%20-%20Grafana.png)
+
+### Nextcloud
+
+<!-- Füge hier einen Screenshot von Nextcloud hinzu, z.B.: -->
+<!-- ![Nextcloud Screenshot](screenshots/Nextcloud_Beispiel.png) -->
