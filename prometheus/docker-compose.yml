@@ -5,20 +5,25 @@ services:
     ports:
       - 9205:9205
     environment:
-      NEXTCLOUD_SERVER: http://nextcloud:80
+      NEXTCLOUD_SERVER: http://192.168.13.131:8010
       NEXTCLOUD_USERNAME: admin
-      NEXTCLOUD_PASSWORD: adminpassword
+      NEXTCLOUD_PASSWORD: M4N2b-53YJq-Eqqmy-KH957-K9W5j
     networks:
       - monitoring
-      - default # zum Verbinden mit dem Nextcloud-Netz, falls gewünscht
+      - nextcloud # zum Verbinden mit dem Nextcloud-Netz, falls gewünscht
 
   mysqld_exporter:
-    image: my-mysqld-exporter
+    image: prom/mysqld-exporter:latest
     restart: always
-    environment:
-      - DATA_SOURCE_NAME=exporter:exporterpassword@(nextcloud-db:3306)/
+    ports:
+      - 9104:9104
+    command:
+      - '--config.my-cnf=/etc/mysql/.my.cnf'
+    volumes:
+      - ./.my.cnf:/etc/mysql/.my.cnf:ro
     networks:
       - monitoring
+      - nextcloud
 
   prometheus:
     image: my-prometheus
@@ -36,7 +41,7 @@ services:
     ports:
       - 8030:3000
     volumes:
-      - grafana_data:/var/lib/grafana
+      - ./grafana_data:/var/lib/grafana
     networks:
       - monitoring
 
@@ -45,3 +50,6 @@ volumes:
 
 networks:
   monitoring:
+  nextcloud:
+    external: true
+    name: nextcloud

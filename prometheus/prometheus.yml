@@ -10,4 +10,4 @@ scrape_configs:
   - job_name: 'nextcloud'
     metrics_path: /
     static_configs:
-      - targets: ['app:80']
+      - targets: ['nextcloud_exporter:9205']

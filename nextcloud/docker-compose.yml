@@ -9,13 +9,17 @@ services:
       MYSQL_DATABASE: nextcloud
       MYSQL_USER: nextcloud
     volumes:
-      - db_data:/var/lib/mysql
+      - ./db_data:/var/lib/mysql
+    networks:
+      - nextcloud
 
   redis:
     image: my-redis
     restart: always
     volumes:
-      - redis_data:/data
+      - ./redis_data:/data
+    networks:
+      - nextcloud
 
   nextcloud:
     image: my-nextcloud
@@ -29,12 +33,19 @@ services:
       MYSQL_HOST: db
       REDIS_HOST: redis
     volumes:
-      - nextcloud_data:/var/www/html
+      - ./nextcloud_data:/var/www/html
     depends_on:
       - db
       - redis
+    networks:
+      - nextcloud
 
 volumes:
   db_data:
   redis_data:
   nextcloud_data:
+
+networks:
+  nextcloud:
+    external: true
+    name: nextcloud
