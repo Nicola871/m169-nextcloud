@@ -1,4 +1,2 @@
-# ./nextcloud-exporter/Dockerfile
+# Basis-Image für Nextcloud Exporter
 FROM xperimental/nextcloud-exporter:latest
-
-# Optional: Umgebung konfigurieren oder Skripte hinzufügen
