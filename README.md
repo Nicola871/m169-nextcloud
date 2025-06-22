@@ -1,7 +1,3 @@
-Natürlich! Hier findest du ein detailliertes README-Template für dein Projekt, in dem die einzelnen Services präzise beschrieben werden. Du kannst den Text direkt in deine README.md übernehmen oder nach Bedarf anpassen:
-
----
-
 # m169-nextcloud Monitoring-Stack
 
 Dieses Projekt stellt einen Monitoring- und Analyse-Stack rund um eine Nextcloud-Instanz bereit. Die einzelnen Dienste laufen in Docker-Containern und sorgen für Überwachung, Visualisierung und Export von Metriken.
@@ -40,6 +36,3 @@ Prometheus ist ein Open-Source Monitoring- und Alerting-System. Es sammelt regel
 #### grafana (Port 8030)
 Grafana dient zur Visualisierung der gesammelten Daten. Mit Hilfe von Dashboards können Trends, Auslastungen und Fehlerzustände übersichtlich dargestellt werden. Grafana bindet sich an Prometheus als Datenquelle an.
 
----
-
-Falls du noch weitere Services ergänzt oder etwas anderes detailliert beschrieben haben möchtest, sag einfach Bescheid!
