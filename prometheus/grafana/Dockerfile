@@ -1,5 +1,2 @@
-# ./grafana/Dockerfile
+# Basis-Image für Grafana
 FROM grafana/grafana:latest
-
-# Optional: Plugins vorinstallieren
-# RUN grafana-cli plugins install grafana-piechart-panel
