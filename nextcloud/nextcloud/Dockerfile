@@ -1,2 +1,2 @@
-# Verwende das offizielle Nextcloud-Image als Basis
+# Basis-Image für Nextcloud
 FROM nextcloud:latest
