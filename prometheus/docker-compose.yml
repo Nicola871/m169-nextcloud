@@ -3,24 +3,24 @@ services:
     image: my-nextcloud-exporter
     restart: always
     ports:
-      - 9205:9205
+      - 9205:9205  # Exporter ist auf Port 9205 erreichbar (Prometheus kann hier Metriken abholen)
     environment:
-      NEXTCLOUD_SERVER: http://192.168.13.131:8010
-      NEXTCLOUD_USERNAME: admin
-      NEXTCLOUD_PASSWORD: M4N2b-53YJq-Eqqmy-KH957-K9W5j
+      NEXTCLOUD_SERVER: http://192.168.13.131:8010  # Adresse des Nextcloud-Servers
+      NEXTCLOUD_USERNAME: admin                     # Benutzername für Nextcloud-Login
+      NEXTCLOUD_PASSWORD: M4N2b-53YJq-Eqqmy-KH957-K9W5j # Passwort für Nextcloud-Login
     networks:
-      - monitoring
-      - nextcloud # zum Verbinden mit dem Nextcloud-Netz, falls gewünscht
+      - monitoring  # Monitoring-Netzwerk für Prometheus & Grafana
+      - nextcloud   # Verbindung zum Nextcloud-Netzwerk
 
   mysqld_exporter:
     image: prom/mysqld-exporter:latest
     restart: always
     ports:
-      - 9104:9104
+      - 9104:9104  # Exporter ist auf Port 9104 erreichbar (Prometheus kann hier MySQL-Metriken abholen)
     command:
-      - '--config.my-cnf=/etc/mysql/.my.cnf'
+      - '--config.my-cnf=/etc/mysql/.my.cnf'  # Pfad zur MySQL-Konfigurationsdatei mit Zugangsdaten
     volumes:
-      - ./.my.cnf:/etc/mysql/.my.cnf:ro
+      - ./.my.cnf:/etc/mysql/.my.cnf:ro       # Bindet die lokale .my.cnf Datei ins Image ein (read-only)
     networks:
       - monitoring
       - nextcloud
@@ -29,9 +29,9 @@ services:
     image: my-prometheus
     restart: always
     ports:
-      - 8020:9090
+      - 8020:9090  # Prometheus Web-UI ist auf Port 8020 erreichbar
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro # Bindet die Prometheus-Konfiguration ein (read-only)
     networks:
       - monitoring
 
@@ -39,17 +39,17 @@ services:
     image: my-grafana
     restart: always
     ports:
-      - 8030:3000
+      - 8030:3000  # Grafana Web-UI ist auf Port 8030 erreichbar
     volumes:
-      - grafana_data:/var/lib/grafana
+      - grafana_data:/var/lib/grafana # Persistentes Volume für Grafana-Daten (Dashboards, User etc.)
     networks:
       - monitoring
 
 volumes:
-  grafana_data:
+  grafana_data: # Definiert ein benanntes Volume für Grafana-Daten
 
 networks:
-  monitoring:
-  nextcloud:
+  monitoring:   # Eigenes Netzwerk für Monitoring-Tools (Prometheus, Grafana, Exporter)
+  nextcloud:    # Externes Netzwerk, um mit Nextcloud-Instanz zu kommunizieren
     external: true
     name: nextcloud
