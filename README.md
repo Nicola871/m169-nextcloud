@@ -46,7 +46,7 @@ Hier ist ein Beispiel für das Montitoring Dashboard von der Nextcloud Datenbank
 
 Hier ist ein Beispiel für das Montitoring Dashboard von der Nextcloud:
 
-![Monitoring Dashboard](screenshots/Screenshot%202025-06-22%20at%2012-03-00%20Nextcloud%20-%20Dashboards%20-%20Grafana.png)
+![Monitoring Dashboard](screenshots/Screenshot 2025-06-22 at 12-03-34 Nextcloud - Dashboards - Grafana.png)
 
 ### Nextcloud
 
