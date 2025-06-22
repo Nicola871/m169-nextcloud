@@ -1,13 +1,16 @@
+# Prometheus-Konfigurationsdatei
+# Definiert, wie oft und welche Endpunkte Prometheus abfragt (scraped), um Metriken zu sammeln.
+
 global:
-  scrape_interval: 15s
-  evaluation_interval: 15s
+  scrape_interval: 15s         # Wie oft sollen alle Targets standardmäßig abgefragt werden?
+  evaluation_interval: 15s     # Wie oft werden Regeln ausgewertet? (z.B. für Alerts)
 
 scrape_configs:
-  - job_name: 'mysql'
+  - job_name: 'mysql'          # Name des Jobs (frei wählbar, dient der Übersicht)
     static_configs:
-      - targets: ['mysqld_exporter:9104']
+      - targets: ['mysqld_exporter:9104']  # Endpunkt des MySQL-Exporters, von dem Prometheus Metriken abholt
 
-  - job_name: 'nextcloud'
-    metrics_path: /
+  - job_name: 'nextcloud'      # Name des Jobs für Nextcloud-Metriken
+    metrics_path: /            # Pfad, unter dem die Metriken bereitgestellt werden (Standard: /metrics, hier /)
     static_configs:
-      - targets: ['nextcloud_exporter:9205']
+      - targets: ['nextcloud_exporter:9205'] # Endpunkt des Nextcloud-Exporters
